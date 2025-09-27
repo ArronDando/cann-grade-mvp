@@ -1,0 +1,13 @@
+name: Migrations Sanity
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List migrations
+        run: ls -la db/migrations
+      - name: Validate filenames
+        run: |
+          if ls db/migrations | grep -vq '^[0-9][0-9][0-9]_.*\.sql$'; then
+            echo "Bad migration filename"; exit 1; fi

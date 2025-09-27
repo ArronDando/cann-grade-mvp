@@ -1,0 +1,10 @@
+.env
+.env.local
+*.DS_Store
+node_modules/
+dist/
+.supabase/
+retool_export/*.tmp
+*.log
+__pycache__/.DS_Store
+Library/
